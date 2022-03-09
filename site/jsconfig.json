@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "checkJs": true,
+    "lib": ["DOM", "ES2020", "WebWorker"],
+    "module": "ES2020",
+    "noEmit": true,
+    "strict": true,
+    "target": "ES2020"
+  },
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" data-status="loading">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>QOI WASM Example</title>
+</head>
+<body>
+  <header>
+    <h1>QOI Image Converter</h1>
+    <p>This is an implementation of the <a target="_blank" rel="noopener noreferrer" href="https://qoiformat.org/">QOI image format</a> in <a target="_blank" rel="noopener noreferrer" href="https://www.rust-lang.org/">Rust</a> compiled to <a target="_blank" rel="noopener noreferrer" href="https://developer.mozilla.org/en-US/docs/WebAssembly">WebAssembly</a>.</p>
+    <ul class="headerList">
+      <li>Convert any image natively supported by your browser into a QOI encoded image</li>
+      <li>Convert a QOI encoded image into a PNG encoded image</li>
+    </ul>
+  </header>
+  <hr>
+  <main id="converter">
+    <div class="statusBar">
+      <svg class="statusBarIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <circle cx="50" cy="50" r="50" />
+      </svg>
+      <p role="status" class="statusBarMessage" data-status="loading">loading...</p>
+      <p role="status" class="statusBarMessage" data-status="ready">ready</p>
+      <p role="status" class="statusBarMessage" data-status="processing">processing...</p>
+      <p role="status" class="statusBarMessage" data-status="error">error</p>
+    </div>
+    <div class="controls">
+      <label class="imageInput card" for="input">
+        <input aria-hidden="true" disabled id="input" type="file" accept="image/*,.qoi" />
+        <div class="imageInputDisplay">
+          <svg class="imageInputIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M19 7v2.99s-1.99.01-2 0V7h-3s.01-1.99 0-2h3V2h2v3h3v2h-3zm-3 4V8h-3V5H3v16h16V11h-3zM5 19l3-4 2 3 3-4 4 5H5z"/>
+          </svg>
+          <p>Press to open file picker or drop image here</p>
+        </div>
+      </label>
+      <figure class="imageInfo card">
+        <img src="" alt=""/>
+        <div class="imageInfoPlaceholder">
+          <svg class="imageInfoImageIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0V0z" fill="none"/>
+            <path d="M21 21V3H3v18h18zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+          </svg>
+        </div>
+        <figcaption class="imageInfoCaption">
+          <a class="imageInfoLink"></a>
+        </figcaption>
+      </figure>
+    </div>
+  </main>
+  <hr>
+  <footer class="footer">
+    <p>View the source on <a href="">GitHub</a>.</p>
+  </footer>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

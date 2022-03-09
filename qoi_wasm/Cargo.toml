@@ -1,0 +1,11 @@
+[package]
+name = "qoi_wasm"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+# Compile as a C compatible dynamic library, required when targeting WASM.
+crate-type = ["cdylib"]
+
+[dependencies]
+qoi = { path = "../qoi" }

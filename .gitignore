@@ -1,0 +1,21 @@
+### site artifacts ###
+/site/*.wasm
+
+### rust/cargo ###
+/target
+debug/
+**/*.rs.bk
+
+### vs code ###
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+.history/
+.ionide
+
+### mac ###
+.DS_Store
+.AppleDouble
+.LSOverride

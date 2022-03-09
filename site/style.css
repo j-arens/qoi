@@ -1,0 +1,257 @@
+:root {
+  --color-accent: 255, 255, 255;
+  --color-primary: 249, 250, 251;
+  --color-text: 17, 24, 39;
+
+  --color-error: 244, 67, 54;
+  --color-success: 76, 175, 80;
+  --color-warning: 255, 235, 59;
+
+  --color-focus-outline: #5E9ED6;
+  --color-focus-ff-outline: Highlight;
+  --color-focus-webkit-outline: -webkit-focus-ring-color;
+  --focus-outline: 2px solid var(--color-focus-webkit-outline, var(--color-focus-ff-outline, var(--color-focus-outline)));
+
+  --spacing: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-accent: 45, 51, 59;
+    --color-link: 82, 148, 249;
+    --color-link-visited: 152, 100, 220;
+    --color-text: 230, 234, 238;
+    --color-primary: 28, 33, 40;
+  }
+
+  a {
+    color: rgb(var(--color-link));
+  }
+
+  a:visited {
+    color: rgb(var(--color-link-visited));
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html[data-status="loading"],
+html[data-status="processing"] {
+  cursor: wait;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(var(--color-primary));
+  font-family: sans-serif;
+  color: rgb(var(--color-text));
+  padding: calc(var(--spacing) * 2);
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  background-color: rgb(var(--color-text), 0.1);
+  margin: calc(var(--spacing) * 2) 0;
+}
+
+.headerList li + li {
+  margin-top: var(--spacing);
+}
+
+.controls {
+  max-width: 400px;
+  margin-top: calc(var(--spacing) * 2);
+}
+
+.statusBar {
+  display: flex;
+  align-items: center;
+}
+
+.statusBarIcon {
+  width: 15px;
+  height: 15px;
+}
+
+.statusBarMessage {
+  display: none;
+  margin: 0 0 0 var(--spacing);
+}
+
+html[data-status="loading"] .statusBarMessage[data-status="loading"],
+html[data-status="ready"] .statusBarMessage[data-status="ready"],
+html[data-status="processing"] .statusBarMessage[data-status="processing"],
+html[data-status="error"] .statusBarMessage[data-status="error"] {
+  display: block;
+}
+
+html[data-status="loading"] .statusBarIcon,
+html[data-status="processing"] .statusBarIcon {
+  fill: rgb(var(--color-warning));
+}
+
+html[data-status="ready"] .statusBarIcon {
+  fill: rgb(var(--color-success));
+}
+
+html[data-status="error"] .statusBarIcon {
+  fill: rgb(var(--color-error));
+}
+
+.card {
+  background-color: rgb(var(--color-accent));
+  border-radius: var(--spacing);
+  border: 1px solid rgb(var(--color-text), 0.1);
+  padding: var(--spacing);
+}
+
+.imageInput,
+.imageInfo {
+  align-self: center;
+  height: 35vh;
+}
+
+.imageInput {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.imageInput input,
+.imageInputDisplay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+}
+
+.imageInput input {
+  height: 150%;
+  top: -50%;
+  left: 0;
+  cursor: pointer;
+}
+
+html[data-status="loading"] .imageInput input,
+html[data-status="processing"] .imageInput input {
+  cursor: wait;
+}
+
+.imageInput input[disabled] {
+  cursor: auto;
+}
+
+.imageInputDisplay {
+  inset: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(var(--color-accent));
+}
+
+.imageInput input:focus-visible + .imageInputDisplay,
+.imageInput input:focus:not(:focus-visible) + .imageInputDisplay {
+  outline: var(--focus-outline);
+  outline-offset: -2px;
+}
+
+.imageInputIcon {
+  fill: rgb(var(--color-text));
+  width: 40px;
+  height: 40px;
+}
+
+.imageInfo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: calc(var(--spacing) * 2) 0 0 0;
+}
+
+.imageInfo img,
+.imageInfoPlaceholder {
+  border-radius: var(--spacing);
+  width: 100%;
+  height: 85%;
+}
+
+.imageInfo img {
+  object-fit: cover;
+}
+
+.imageInfoPlaceholder {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: var(--spacing);
+  left: var(--spacing);
+  width: calc(100% - (var(--spacing) * 2));
+  border: 2px dashed rgb(var(--color-text));
+  background-color: rgb(var(--color-accent));
+}
+
+.imageInfoImageIcon {
+  width: 40px;
+  height: 40px;
+  fill: rgb(var(--color-text));
+}
+
+.imageInfo img[src=""] {
+  opacity: 0;
+}
+
+.imageInfo img[src=""] + .imageInfoPlaceholder {
+  display: flex;
+}
+
+.imageInfoCaption {
+  margin: auto 0;
+  max-width: 100%;
+}
+
+.imageInfoLink {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: rgb(var(--color-text));
+}
+
+.footer {
+  padding-bottom: calc(var(--spacing) * 4);
+}
+
+@media screen and (min-width: 990px) {
+  .controls {
+    max-width: 100%;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: calc(50% - var(--spacing)) calc(50% - var(--spacing));
+    gap: calc(var(--spacing) * 2);
+  }
+
+  .imageInput,
+  .imageInfo {
+    height: 400px;
+  }
+
+  .imageInfo {
+    margin: 0;
+  }
+}

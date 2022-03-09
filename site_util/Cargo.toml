@@ -1,0 +1,8 @@
+[package]
+name = "site_util"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+devserver_lib = { version = "0.4.1", default-features = false, features = ["reload"] }
+hotwatch = "0.4.6"

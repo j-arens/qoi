@@ -1,0 +1,22 @@
+cargo-features = ["named-profiles"]
+
+[workspace]
+members = [
+  "qoi",
+  "qoi_wasm",
+  "site_util",
+]
+
+# Custom release profile overrides for the `wasm` package.
+[profile.release-wasm]
+# Inherits from Cargo's standard "release" profile.
+inherits = "release"
+
+# Enable LLVM's link time optimizations.
+lto = true
+
+# :all-the-optimizations:
+opt-level = 3
+
+# Disable stack unwinding. A panic in WASM results in an abort regardless.
+panic = "abort"
