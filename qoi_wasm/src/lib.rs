@@ -75,7 +75,7 @@
 //!   // successfully completed.
 //!   on_encode_complete: (pointer, size) => {
 //!     // Address that points to the beginning of the encoded image data in
-//!     // WASM instance's memory.
+//!     // the WASM instance's memory.
 //!     console.log(pointer);
 //! 
 //!     // Size of the encoded image in memory.
@@ -88,6 +88,8 @@
 //!     wasm.instance.exports.qoi_dealloc(pointer, size);
 //!   },
 //! 
+//!   // Callback invoked by the WASM instance when an error occurs while
+//!   // encoding a QOI image.
 //!   on_encode_error: (code) => {
 //!     // Error code that maps to the type of error that occured.
 //!     console.error(code);
@@ -108,8 +110,8 @@
 //! slice.set(decodedImage);
 //! 
 //! // Call the WASM instance's `qoi_image_encode` function with the pixel
-//! // data's pointer and size in memory, as well was the image's width,
-//! // height, channels, and colorspace.
+//! // data's pointer and size in memory, as well as the image's width, height,
+//! // channels, and colorspace.
 //! let imageWidth = 100;
 //! let imageHeight = 100;
 //! let colorspace = 1; // Or 0 for Srgb.

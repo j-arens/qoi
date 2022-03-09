@@ -25,7 +25,7 @@ impl Default for Pixel {
 }
 
 impl Pixel {
-  // Attempts to produce `PixelDiff` against the provided `other` pixel.
+  // Attempts to produce a `PixelDiff` against the provided `other` pixel.
   // Returns `Some(PixelDiff)` when there is a diff within range, otherwise
   // `None` is returned.
   pub fn diff(&self, other: &Pixel) -> Option<PixelDiff> {

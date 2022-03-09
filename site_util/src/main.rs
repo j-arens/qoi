@@ -2,21 +2,23 @@
 //! 
 //! # Commands
 //! 
+//! Compile the `qoi_wasm` crate and copy the built WASM file into the `site`
+//! directory.
+//! 
 //! ```sh
 //! cargo run -- build
 //! ```
 //! 
-//! Compiles the `qoi_wasm` crate and copies the built WASM file into the
-//! `site` directory.
+//! Does the same thing as the `build` command and also starts a local
+//! development server that serves content out of the `site` directory.
+//! Modifying a source file in the `qoi_wasm` crate will result in the it
+//! automatically being recompiled, and the built WASM copied into the `site`
+//! directory. Making a change to any file in the site directory will
+//! automatically refresh the page.
 //! 
 //! ```sh
 //! cargo run -- dev
 //! ```
-//! 
-//! Does the same thing as the `build` command and also starts a local
-//! development server that serves content out of the `site` directory.
-//! Modifying a source file in the `qoi_wasm` crate or any file in the `site`
-//! directory will automatically refresh the page.
 //! 
 
 use std::env;
