@@ -43,13 +43,11 @@ impl Paths {
     let root_dir = fs::canonicalize("../")?;
 
     Ok(Self {
-      site_dir: root_dir.clone().join("site"),
-      wasm_dir: root_dir.clone().join("qoi_wasm"),
-      wasm_src: root_dir.clone().join("qoi_wasm/src/lib.rs"),
-      wasm_build: root_dir
-        .clone()
-        .join("target/wasm32-unknown-unknown/release-wasm/qoi_wasm.wasm"),
-      wasm_target: root_dir.clone().join("site/qoi.wasm"),
+      site_dir: root_dir.join("site"),
+      wasm_dir: root_dir.join("qoi_wasm"),
+      wasm_src: root_dir.join("qoi_wasm/src/lib.rs"),
+      wasm_build: root_dir.join("target/wasm32-unknown-unknown/release-wasm/qoi_wasm.wasm"),
+      wasm_target: root_dir.join("site/qoi.wasm"),
     })
   }
 }
