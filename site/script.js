@@ -247,7 +247,7 @@ async function processImageFile(file, worker) {
  *
  * @returns {Promise<ImageData>}
  */
-async function qoiDecodeImage(worker, buffer) {
+function qoiDecodeImage(worker, buffer) {
   return new Promise((resolve, reject) => {
     worker.addEventListener(
       'message',
@@ -281,7 +281,7 @@ async function qoiDecodeImage(worker, buffer) {
  *
  * @returns {Promise<ArrayBuffer>}
  */
-async function qoiEncodeImage(worker, imageData) {
+function qoiEncodeImage(worker, imageData) {
   return new Promise((resolve, reject) => {
     worker.addEventListener(
       'message',
